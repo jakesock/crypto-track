@@ -12,7 +12,7 @@
 #### Home
 
 - [ ] Add Graph for BTC (most popular)
-- [ ] Add Components for quick overview of next 2 modt popular coins under the main graph
+- [ ] Add Components for quick overview of next 2 most popular coins under the main graph
 
 #### Explore
 
