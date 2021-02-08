@@ -7,6 +7,11 @@ export const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
     padding: '1rem 0',
   },
+  navOptions: {
+    display: 'flex',
+    alignItems: 'center',
+    marginRight: '-.75rem',
+  },
   navLinkList: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -14,5 +19,14 @@ export const useStyles = makeStyles((theme: Theme) => ({
     marginBlockStart: 0,
     marginBlockEnd: 0,
     paddingInlineStart: 0,
+    '& li': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  },
+  themeToggleButton: {
+    marginLeft: '.75rem',
+    color: theme.palette.info.main,
   },
 }));

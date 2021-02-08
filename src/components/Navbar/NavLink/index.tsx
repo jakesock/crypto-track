@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { Button } from '@material-ui/core';
+import { NavLink as RouterLink } from 'react-router-dom';
 
 import { useStyles } from './styles';
 
@@ -13,9 +12,14 @@ const NavLink: React.FC<NavLinkProps> = ({ route, label }) => {
 
   return (
     <>
-      <Button component={Link} to={route} className={classes.root}>
-        {label}
-      </Button>
+      <RouterLink
+        className={`${classes.root}`}
+        activeClassName={`${classes.navLinkActive}`}
+        to={route}
+        exact
+      >
+        <span>{label}</span>
+      </RouterLink>
     </>
   );
 };

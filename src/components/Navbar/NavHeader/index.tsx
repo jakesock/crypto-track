@@ -1,4 +1,5 @@
-import { Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { Button, Typography } from '@material-ui/core';
 
 import { useStyles } from './styles';
 
@@ -8,12 +9,20 @@ interface NavHeaderProps {
 
 const NavHeader: React.FC<NavHeaderProps> = ({ title }) => {
   const classes = useStyles();
+
   return (
-    <div className={classes.root}>
-      <Typography className={classes.headerText} variant="h1">
-        CryptoTrack
-      </Typography>
-    </div>
+    <>
+      <Button
+        className={classes.headerTextWrapper}
+        component={Link}
+        to="/"
+        disableRipple
+      >
+        <Typography className={classes.headerText} variant="h1">
+          CryptoTrack
+        </Typography>
+      </Button>
+    </>
   );
 };
 

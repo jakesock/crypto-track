@@ -1,25 +1,17 @@
+import { IconButton } from '@material-ui/core';
+import Brightness7Icon from '@material-ui/icons/Brightness7';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
 import NavHeader from './NavHeader';
 import NavLink from './NavLink';
-
 import { useStyles } from './styles';
+import { NAV_LINKS } from '../../constants';
 
-interface Link {
-  route: string;
-  label: string;
+interface NavbarProps {
+  isDarkTheme: boolean;
+  handleThemeChange: () => void;
 }
 
-const NAV_LINKS: Link[] = [
-  {
-    route: '/',
-    label: 'Coin Summary',
-  },
-  {
-    route: '/test',
-    label: 'Test Route',
-  },
-];
-
-const Navbar = () => {
+const Navbar: React.FC<NavbarProps> = ({ isDarkTheme, handleThemeChange }) => {
   const classes = useStyles();
 
   const renderedLinks = () => {
@@ -41,7 +33,15 @@ const Navbar = () => {
   return (
     <div className={classes.root}>
       <NavHeader title="CryptoTrack" />
-      {renderedLinks()}
+      <div className={classes.navOptions}>
+        {renderedLinks()}
+        <IconButton
+          className={classes.themeToggleButton}
+          onClick={handleThemeChange}
+        >
+          {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
+      </div>
     </div>
   );
 };
