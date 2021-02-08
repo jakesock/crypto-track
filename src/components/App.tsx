@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import MyPortfolio from './pages/MyPortfolio';
 import CoinDetail from './pages/CoinDetail';
 import Explore from './pages/Explore';
+import NotFound from './pages/NotFound';
 
 import { lightTheme, darkTheme } from '../theme';
 import { useStyles } from './styles';
@@ -36,6 +37,7 @@ const App: React.FC = () => {
                 <Route path="/portfolio" component={MyPortfolio} />
                 <Route path="/coin/:id" component={CoinDetail} />
                 <Route path="/explore" component={Explore} />
+                <Route path="*" component={NotFound} />
               </Switch>
             </Container>
           </Grow>

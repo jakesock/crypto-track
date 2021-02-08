@@ -1,4 +1,4 @@
-const CoinDetail = () => {
+const CoinDetail: React.FC = () => {
   return (
     <div>
       <h2>CoinDetail</h2>

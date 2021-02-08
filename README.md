@@ -26,7 +26,7 @@
 
 - [ ] Add List of saved coin (from local storage)
 - [ ] Show "Portfolio empty, add crypto" message and link to Explore page when no saved coins
-- [ ] Add ability to filter based on current market price, A-Z, Z-A, amount owned, or filter by search term
+- [ ] Add ability to filter based on current market p rice, A-Z, Z-A, amount owned, or filter by search term
 - [ ] Add ability to edit amount owned
 - [ ] Add ability to delete owned
 - [ ] Add "top 3" list which, when populated, become the 3 displayed on the home page
@@ -36,3 +36,7 @@
 - [ ] Github Link
 - [ ] Copyright Info ('Made with <3 by Jake')
 - [ ] LinkedIn
+
+#### Not Found
+
+- [ ] Style Not Found Page

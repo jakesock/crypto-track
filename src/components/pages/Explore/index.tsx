@@ -1,4 +1,4 @@
-const Explore = () => {
+const Explore: React.FC = () => {
   return (
     <div>
       <h2>Explore</h2>
