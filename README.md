@@ -2,19 +2,19 @@
 
 ## TODO:
 
-#### Navbar
+#### Navbar:
 
 - [x] Scaffold Pages
 - [x] Make Reusable Navlink component
 - [x] Make Reusable Header Component for nav
 - [x] Style Navbar
 
-#### Home
+#### Home:
 
-- [ ] Add Graph for BTC (most popular)
+- [ ] Add Graph for top favorite coin
 - [ ] Add Components for quick overview of next 2 most popular coins under the main graph
 
-#### Explore
+#### Explore:
 
 - [ ] Add search bar
 - [ ] Middle of page contains "Popular Recently" section before search
@@ -22,26 +22,28 @@
 - [ ] "No results found for _x_" when no results found
 - [ ] Allow user to add to their portfolio from explore page
 
-#### My Portfolio
+#### My Portfolio:
 
-- [ ] Add List of saved coin (from local storage)
+- [x] Add list of saved coin
+- [ ] Save to Local Storage
 - [ ] Show "Portfolio empty, add crypto" message and link to Explore page when no saved coins
-- [ ] Add ability to filter based on current market p rice, A-Z, Z-A, amount owned, or filter by search term
+- [ ] Add ability to filter based on current market price, A-Z, Z-A, amount owned, or filter by search term
 - [ ] Add ability to edit amount owned
-- [ ] Add ability to delete owned
+- [x] Add ability to delete
+- [ ] Style delete button
 - [ ] Add "top 3" list which, when populated, become the 3 displayed on the home page
 
-#### Footer
+#### Footer:
 
 - [ ] Github Link
 - [ ] Copyright Info ('Made with <3 by Jake')
 - [ ] LinkedIn
 
-#### Not Found
+#### Not Found:
 
 - [x] Style Not Found Page
 
-#### UX/Feedback/Error Handling
+#### UX/Feedback/Error Handling:
 
 - [ ] Make Snackbar Component
 - [ ] Handle errors with error state

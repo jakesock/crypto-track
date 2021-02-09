@@ -34,6 +34,10 @@ const reducer = produce(
 
       case ActionType.DELETE_COIN:
         delete state.coins[action.payload];
+        state.order = state.order.filter((id) => id !== action.payload);
+        if (state.favorites.includes(action.payload)) {
+          state.favorites = state.favorites.filter((id) => id !== action.payload);
+        }
         return state;
 
       case ActionType.SET_PORTFOLIO_LOADING:

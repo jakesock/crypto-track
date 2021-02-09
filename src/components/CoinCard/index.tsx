@@ -3,6 +3,8 @@ import { Card, CardContent, Typography, Grid } from '@material-ui/core';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
+import CoinCardOptions from './CoinCardOptions';
+
 import { Coin } from '../../state';
 
 import { useStyles } from './styles';
@@ -19,6 +21,9 @@ const CoinCard: React.FC<CoinCardProps> = ({ coin }) => {
     <Link className={classes.root} to={`/coin/${coin.id}`}>
       <li className={classes.li}>
         <Card className={classes.card}>
+          <div className={classes.cardOptionsContainer}>
+            <CoinCardOptions id={coin.id} />
+          </div>
           <CardContent>
             <Grid container alignItems="center">
               <Grid item xs={3}>
