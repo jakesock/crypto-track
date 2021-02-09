@@ -20,7 +20,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkTheme, handleThemeChange }) => {
         <ul className={classes.navLinkList}>
           {NAV_LINKS.map((link) => {
             return (
-              <li>
+              <li key={link.route}>
                 <NavLink route={link.route} label={link.label} />
               </li>
             );

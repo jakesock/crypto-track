@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { MuiThemeProvider, Container, CssBaseline, Grow } from '@material-ui/core';
+
+import { useActions } from '../hooks/useActions';
 
 import Navbar from './Navbar';
 import Home from './pages/Home';
@@ -20,6 +22,12 @@ const App: React.FC = () => {
   const handleThemeChange = () => {
     setisDarkTheme(!isDarkTheme);
   };
+
+  const { getPortfolio } = useActions();
+
+  useEffect(() => {
+    getPortfolio();
+  }, [getPortfolio]);
 
   return (
     <div className={classes.root}>

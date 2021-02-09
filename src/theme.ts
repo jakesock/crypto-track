@@ -30,7 +30,6 @@ export const lightTheme = createMuiTheme({
     },
     background: {
       default: '#FAFAFC',
-      paper: '#EBEBF0',
     },
     text: {
       primary: '#2E2F43',

@@ -1,7 +1,9 @@
+import CoinList from '../../CoinList';
+
 const MyPortfolio: React.FC = () => {
   return (
     <div>
-      <h2>My Portfolio</h2>
+      <CoinList />
     </div>
   );
 };

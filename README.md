@@ -39,4 +39,11 @@
 
 #### Not Found
 
-- [ ] Style Not Found Page
+- [x] Style Not Found Page
+
+#### UX/Feedback/Error Handling
+
+- [ ] Make Snackbar Component
+- [ ] Handle errors with error state
+- [ ] Style loading screens
+- [ ] Completely Redo Light Theme Palette
