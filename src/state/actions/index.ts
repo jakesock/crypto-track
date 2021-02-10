@@ -1,5 +1,5 @@
 import { ActionType } from '../actionTypes';
-import { CoinsListState } from '../Coin';
+import { Coin, CoinHistoryLabels, CoinsListState, PriceHistoryList } from '../Coin';
 
 // Portfolio Actions
 export interface SetPortfolioLoadingAction {
@@ -28,7 +28,11 @@ export interface SetCoinLoadingAction {
 
 export interface GetCoinAction {
   type: ActionType.GET_COIN;
-  payload: CoinsListState;
+  payload: {
+    detail: Coin;
+    priceHistory: PriceHistoryList;
+    label: CoinHistoryLabels;
+  };
 }
 
 export type Action =

@@ -2,6 +2,11 @@ export interface CoinsListState {
   [key: string]: Coin;
 }
 
+export interface CoinDetail {
+  detail: Coin;
+  history: CoinHistory;
+}
+
 export interface Coin {
   id: string;
   symbol: string;
@@ -35,4 +40,49 @@ interface Roi {
   times: number;
   currency: string;
   percentage: number;
+}
+
+export interface CoinHistory {
+  price: PriceHistoryList;
+  label: CoinHistoryLabels;
+}
+
+export type PriceHistoryList = PriceHistoryData[];
+export type PriceHistoryData = [number, number];
+
+export enum CoinHistoryTimeFrames {
+  day = '1',
+  week = '7',
+  twoWeeks = '14',
+  month = '30',
+  sixMonths = '180',
+  year = '365',
+}
+
+export enum CoinHistoryLabels {
+  day = 'Day',
+  week = 'Week',
+  twoWeeks = 'Two Weeks',
+  month = 'Month',
+  sixMonths = 'Six Months',
+  year = 'Year',
+}
+
+export function getCoinHistoryLabel(
+  timeFrame: CoinHistoryTimeFrames,
+): CoinHistoryLabels {
+  switch (timeFrame) {
+    case CoinHistoryTimeFrames.day:
+      return CoinHistoryLabels.day;
+    case CoinHistoryTimeFrames.week:
+      return CoinHistoryLabels.week;
+    case CoinHistoryTimeFrames.twoWeeks:
+      return CoinHistoryLabels.twoWeeks;
+    case CoinHistoryTimeFrames.month:
+      return CoinHistoryLabels.month;
+    case CoinHistoryTimeFrames.sixMonths:
+      return CoinHistoryLabels.sixMonths;
+    case CoinHistoryTimeFrames.year:
+      return CoinHistoryLabels.year;
+  }
 }

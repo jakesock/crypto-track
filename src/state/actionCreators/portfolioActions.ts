@@ -23,7 +23,7 @@ export const getPortfolio = (): AppThunk => async (
 
     let coins: CoinsListState;
     if (coinsList && coinsList.length) {
-      const { data } = await api.getCoinsMarkets(coinsList, preferredCurrency);
+      const { data } = await api.getCoinDetails(coinsList, preferredCurrency);
       coins = useArrayToObject(data, 'id');
     } else {
       coins = {};

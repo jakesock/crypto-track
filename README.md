@@ -58,3 +58,11 @@
 - [ ] Handle errors with error state
 - [ ] Style loading screens
 - [ ] Completely Redo Light Theme Palette
+
+#### Code Base
+
+- [ ] Organize import statements
+- [ ] Refactor wherever possible
+- [ ] Clean up type definitions where necessary
+- [ ] Go over types and add them where necessary
+- [ ] Go over all of code once or twice and see what can be improved and improve variable names/add notes if needed
