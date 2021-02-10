@@ -1,11 +1,5 @@
 import { useState } from 'react';
-import {
-  Menu,
-  MenuItem,
-  ListItemIcon,
-  Typography,
-  IconButton,
-} from '@material-ui/core';
+import { Menu, MenuItem, Typography, IconButton } from '@material-ui/core';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import DeleteIcon from '@material-ui/icons/Delete';
 
@@ -19,7 +13,7 @@ interface CoinCardOptionsProps {
 const CoinCardOptions: React.FC<CoinCardOptionsProps> = ({ id }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const { deleteCoin } = useActions();
+  const { deletePortfolioCoin } = useActions();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -34,7 +28,7 @@ const CoinCardOptions: React.FC<CoinCardOptionsProps> = ({ id }) => {
   const handleDeleteSelect = (
     event: React.MouseEvent<HTMLLIElement, MouseEvent>,
   ) => {
-    deleteCoin(id);
+    deletePortfolioCoin(id);
     handleClose(event);
   };
 
@@ -65,11 +59,11 @@ const CoinCardOptions: React.FC<CoinCardOptionsProps> = ({ id }) => {
           horizontal: 'center',
         }}
       >
-        <MenuItem onClick={handleDeleteSelect}>
-          <ListItemIcon>
-            <DeleteIcon fontSize="small" />
-          </ListItemIcon>
-          <Typography variant="inherit">Delete</Typography>
+        <MenuItem onClick={handleDeleteSelect} className={classes.menuItemDanger}>
+          <DeleteIcon fontSize="small" className={classes.menuItemIcon} />
+          <Typography variant="inherit" className={classes.menuItemText}>
+            Delete
+          </Typography>
         </MenuItem>
       </Menu>
     </div>

@@ -32,7 +32,7 @@ const reducer = produce(
         };
         return state;
 
-      case ActionType.DELETE_COIN:
+      case ActionType.DELETE_PORTFOLIO_COIN:
         delete state.coins[action.payload];
         state.order = state.order.filter((id) => id !== action.payload);
         if (state.favorites.includes(action.payload)) {

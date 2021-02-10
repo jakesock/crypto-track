@@ -1,6 +1,7 @@
 import { ActionType } from '../actionTypes';
 import { CoinsListState } from '../Coin';
 
+// Portfolio Actions
 export interface SetPortfolioLoadingAction {
   type: ActionType.SET_PORTFOLIO_LOADING;
 }
@@ -15,12 +16,24 @@ export interface GetPortfolioAction {
   };
 }
 
-export interface DeleteCoinAction {
-  type: ActionType.DELETE_COIN;
+export interface DeletePortfolioCoinAction {
+  type: ActionType.DELETE_PORTFOLIO_COIN;
   payload: string;
+}
+
+// Single Coin Actions
+export interface SetCoinLoadingAction {
+  type: ActionType.SET_COIN_LOADING;
+}
+
+export interface GetCoinAction {
+  type: ActionType.GET_COIN;
+  payload: CoinsListState;
 }
 
 export type Action =
   | SetPortfolioLoadingAction
   | GetPortfolioAction
-  | DeleteCoinAction;
+  | DeletePortfolioCoinAction
+  | SetCoinLoadingAction
+  | GetCoinAction;

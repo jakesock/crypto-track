@@ -21,17 +21,26 @@
 - [ ] Populate list under search bar for matching queries
 - [ ] "No results found for _x_" when no results found
 - [ ] Allow user to add to their portfolio from explore page
+- [ ] Save to Local Storage
 
 #### My Portfolio:
 
 - [x] Add list of saved coin
-- [ ] Save to Local Storage
 - [ ] Show "Portfolio empty, add crypto" message and link to Explore page when no saved coins
 - [ ] Add ability to filter based on current market price, A-Z, Z-A, amount owned, or filter by search term
 - [ ] Add ability to edit amount owned
+- [ ] Show amount owned and current value in preferred currency
 - [x] Add ability to delete
 - [ ] Style delete button
+- [ ] Add ability to change preferred currency
 - [ ] Add "top 3" list which, when populated, become the 3 displayed on the home page
+- [ ] Add switch to go from general tracking to top 3 favorites
+
+#### Coin Detail:
+
+- [ ] Coin Graph
+- [ ] Coin Overview Section
+- [ ] Back button
 
 #### Footer:
 
