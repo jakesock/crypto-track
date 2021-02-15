@@ -44,9 +44,9 @@
 
 #### Footer:
 
-- [ ] Github Link
-- [ ] Copyright Info ('Made with <3 by Jake')
-- [ ] LinkedIn
+- [x] Github Link
+- [x] Copyright Info ('Made with <3 by Jake')
+- [x] LinkedIn
 
 #### Not Found:
 

@@ -8,7 +8,7 @@ const NotFound: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <main className={classes.root}>
+    <div className={classes.root}>
       <Paper className={classes.paper}>
         <img
           className={classes.image}
@@ -35,7 +35,7 @@ const NotFound: React.FC = () => {
           Get Back To Earth
         </Button>
       </Paper>
-    </main>
+    </div>
   );
 };
 

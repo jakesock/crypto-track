@@ -11,8 +11,5 @@ export const useStyles = makeStyles((theme: Theme) => ({
   headerText: {
     fontSize: '2.75rem',
     color: theme.palette.primary.main,
-    '&:hover': {
-      cursor: 'pointer',
-    },
   },
 }));
