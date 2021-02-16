@@ -66,3 +66,4 @@
 - [ ] Clean up type definitions where necessary
 - [ ] Go over types and add them where necessary
 - [ ] Go over all of code once or twice and see what can be improved and improve variable names/add notes if needed
+- [ ] Refactor App Component

@@ -3,14 +3,14 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
-    padding: theme.spacing(3, 2),
-    marginTop: 'auto',
+    padding: '.5em 1em .225em 1em',
   },
-  footerLinkContainer: {
-    display: 'flex',
-    justifyContent: 'center',
+  heart: {
+    color: theme.palette.error.main,
+  },
+  copyrightIcon: {
+    fontSize: '1rem',
+    margin: '0 .25em',
   },
 }));
