@@ -7,4 +7,9 @@ export enum ActionType {
   // Single Coin Action Types
   GET_COIN = 'GET_COIN',
   SET_COIN_LOADING = 'SET_COIN_LOADING',
+
+  // Search Action Types
+  SEARCH_COINS = 'SEARCH_COINS',
+  SET_SEARCH_LOADING = 'SET_SEARCH_LOADING',
+  SET_SEARCH_FAILED = 'SET_SEARCH_FAILED',
 }

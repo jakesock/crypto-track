@@ -86,3 +86,14 @@ export function getCoinHistoryLabel(
       return CoinHistoryLabels.year;
   }
 }
+
+export type SearchResult = CoinResult[];
+
+export interface CoinResult {
+  id: string;
+  name: string;
+  symbol: string;
+  market_cap_rank: number | null;
+  thumb: string;
+  large: string;
+}

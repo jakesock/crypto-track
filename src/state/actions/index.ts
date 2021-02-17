@@ -1,5 +1,11 @@
 import { ActionType } from '../actionTypes';
-import { Coin, CoinHistoryLabels, CoinsListState, PriceHistoryList } from '../Coin';
+import {
+  Coin,
+  CoinHistoryLabels,
+  CoinsListState,
+  PriceHistoryList,
+  SearchResult,
+} from '../Coin';
 
 // Portfolio Actions
 export interface SetPortfolioLoadingAction {
@@ -35,9 +41,26 @@ export interface GetCoinAction {
   };
 }
 
+// Search Actions
+export interface SearchCoinsAction {
+  type: ActionType.SEARCH_COINS;
+  payload: SearchResult;
+}
+
+export interface SetSearchLoadingAction {
+  type: ActionType.SET_SEARCH_LOADING;
+}
+
+export interface SetSearchFailedAction {
+  type: ActionType.SET_SEARCH_FAILED;
+}
+
 export type Action =
   | SetPortfolioLoadingAction
   | GetPortfolioAction
   | DeletePortfolioCoinAction
   | SetCoinLoadingAction
-  | GetCoinAction;
+  | GetCoinAction
+  | SearchCoinsAction
+  | SetSearchLoadingAction
+  | SetSearchFailedAction;
