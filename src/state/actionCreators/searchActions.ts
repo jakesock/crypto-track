@@ -19,9 +19,9 @@ export const searchCoins = (term: string): AppThunk => async (
     const coins: SearchResult = data.coins;
 
     if (coins && coins.length) {
-      dispatch({ type: ActionType.SEARCH_COINS, payload: coins });
+      dispatch({ type: ActionType.SEARCH_COINS, payload: { results: coins, term } });
     } else {
-      dispatch({ type: ActionType.SET_SEARCH_FAILED });
+      dispatch({ type: ActionType.SET_SEARCH_FAILED, payload: term });
     }
   } catch (err) {
     console.log(err);

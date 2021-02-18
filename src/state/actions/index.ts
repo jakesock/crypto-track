@@ -44,7 +44,7 @@ export interface GetCoinAction {
 // Search Actions
 export interface SearchCoinsAction {
   type: ActionType.SEARCH_COINS;
-  payload: SearchResult;
+  payload: { results: SearchResult; term: string };
 }
 
 export interface SetSearchLoadingAction {
@@ -53,6 +53,7 @@ export interface SetSearchLoadingAction {
 
 export interface SetSearchFailedAction {
   type: ActionType.SET_SEARCH_FAILED;
+  payload: string;
 }
 
 export type Action =

@@ -7,12 +7,14 @@ interface SearchState {
   loading: boolean;
   results: SearchResult;
   failed: boolean;
+  term: string;
 }
 
 const initialState: SearchState = {
   loading: false,
   results: [],
   failed: false,
+  term: '',
 };
 
 const reducer = produce(
@@ -23,6 +25,7 @@ const reducer = produce(
           loading: true,
           results: [],
           failed: false,
+          term: '',
         };
         return state;
       case ActionType.SET_SEARCH_FAILED:
@@ -30,13 +33,15 @@ const reducer = produce(
           loading: false,
           results: [],
           failed: true,
+          term: action.payload,
         };
         return state;
       case ActionType.SEARCH_COINS:
         state = {
           loading: false,
-          results: action.payload,
+          results: action.payload.results,
           failed: false,
+          term: action.payload.term,
         };
         return state;
       default:

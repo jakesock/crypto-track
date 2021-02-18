@@ -16,10 +16,11 @@
 
 #### Explore:
 
-- [ ] Add search bar
+- [x] Add search bar
 - [ ] Middle of page contains "Popular Recently" section before search
-- [ ] Populate list under search bar for matching queries
-- [ ] "No results found for _x_" when no results found
+- [ ] Style Results
+- [x] Populate list under search bar for matching queries
+- [x] "No results found for _x_" when no results found
 - [ ] Allow user to add to their portfolio from explore page
 - [ ] Save to Local Storage
 
@@ -31,7 +32,7 @@
 - [ ] Add ability to edit amount owned
 - [ ] Show amount owned and current value in preferred currency
 - [x] Add ability to delete
-- [ ] Style delete button
+- [x] Style delete button
 - [ ] Add ability to change preferred currency
 - [ ] Add "top 3" list which, when populated, become the 3 displayed on the home page
 - [ ] Add switch to go from general tracking to top 3 favorites
