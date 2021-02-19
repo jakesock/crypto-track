@@ -1,16 +1,13 @@
-export const historyOptions = {
-  lineHeightAnnotation: {
-    always: true,
-    hover: false,
-    lineWeight: 1.5,
-  },
+import { ChartOptions } from 'chart.js';
+
+export const chartOptions: ChartOptions = {
   animation: {
-    duration: 2000,
+    duration: 1500,
   },
   maintainAspectRatio: false,
   responsive: true,
   scales: {
-    xAxis: [
+    xAxes: [
       {
         type: 'time',
         distribution: 'linear',
