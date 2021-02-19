@@ -55,6 +55,7 @@ const CoinDetail: React.FC = () => {
             }}
             currency={preferredCurrency}
             details={coinDetails}
+            timeFrame={timeFrame}
             setTimeFrame={setTimeFrame}
           />
         </div>

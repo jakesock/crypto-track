@@ -4,6 +4,7 @@ import { Paper, useTheme, Typography } from '@material-ui/core';
 import { chartOptions } from '../../config/chart';
 import { PriceData } from '../pages/CoinDetail';
 import { Coin, CoinHistoryTimeFrames, CoinHistoryLabels } from '../../state';
+import TimeFrameSelect from './TimeFrameSelect';
 
 import { useStyles } from './styles';
 
@@ -14,10 +15,17 @@ interface CoinChartProps {
   };
   currency: string;
   details: Coin;
+  timeFrame: CoinHistoryTimeFrames;
   setTimeFrame: React.Dispatch<React.SetStateAction<CoinHistoryTimeFrames>>;
 }
 
-const CoinChart: React.FC<CoinChartProps> = ({ data, currency, details }) => {
+const CoinChart: React.FC<CoinChartProps> = ({
+  data,
+  currency,
+  details,
+  timeFrame,
+  setTimeFrame,
+}) => {
   const chartRef = useRef<HTMLCanvasElement>(null);
   const theme = useTheme();
   const classes = useStyles();
@@ -51,6 +59,7 @@ const CoinChart: React.FC<CoinChartProps> = ({ data, currency, details }) => {
           <Typography variant="h5" component="p">
             {details.name} Price History Last {data.historyLabel}
           </Typography>
+          <TimeFrameSelect timeFrame={timeFrame} setTimeFrame={setTimeFrame} />
           <Typography variant="h6" component="p">
             Current Price ({currency.toUpperCase()}):{' '}
             {details.current_price.toFixed(2)}

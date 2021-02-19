@@ -40,11 +40,11 @@
 #### Coin Detail:
 
 - [x] Coin Graph
-- [ ] Style Graph
+- [ ] Style Graph and Graph Content
 - [ ] Coin Overview Section
 - [ ] Back button
 - [ ] Clean Up Page Component
-- [ ] Change time frame selection from buttons to dropdown
+- [x] Add time frame selection
 
 #### Footer:
 
@@ -56,12 +56,13 @@
 
 - [x] Style Not Found Page
 
-#### UX/Feedback/Error Handling:
+#### UI/UX/Feedback/Error Handling:
 
 - [ ] Make Snackbar Component
 - [ ] Handle errors with error state
 - [ ] Style loading screens
-- [ ] Completely Redo Light Theme Palette
+- [ ] Revamp Light Theme Palette
+- [ ] Revisit Dark Theme Palette
 
 #### Code Base
 

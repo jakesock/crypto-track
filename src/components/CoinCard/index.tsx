@@ -41,7 +41,9 @@ const CoinCard: React.FC<CoinCardProps> = ({ coin }) => {
                 </Typography>
               </Grid>
               <Grid item xs={3}>
-                <Typography variant="body1">${coin.current_price}</Typography>
+                <Typography variant="body1">
+                  ${coin.current_price.toFixed(2)}
+                </Typography>
               </Grid>
               <Grid item xs={3}>
                 <Typography
@@ -55,7 +57,7 @@ const CoinCard: React.FC<CoinCardProps> = ({ coin }) => {
                   ) : (
                     <ArrowDropUpIcon />
                   )}
-                  {coin.price_change_percentage_24h}%
+                  {coin.price_change_percentage_24h.toFixed(2)}%
                 </Typography>
               </Grid>
             </Grid>
