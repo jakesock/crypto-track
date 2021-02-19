@@ -10,6 +10,7 @@ import MyPortfolio from './pages/MyPortfolio';
 import CoinDetail from './pages/CoinDetail';
 import Explore from './pages/Explore';
 import NotFound from './pages/NotFound';
+import Footer from './Footer';
 
 import { lightTheme, darkTheme } from '../theme';
 import { useStyles } from './styles';
@@ -34,21 +35,34 @@ const App: React.FC = () => {
       <Router>
         <MuiThemeProvider theme={theme}>
           <CssBaseline />
-          <Grow in {...{ timeout: 800 }}>
-            <Container maxWidth="lg">
-              <Navbar
-                isDarkTheme={isDarkTheme}
-                handleThemeChange={handleThemeChange}
-              />
-              <Switch>
-                <Route path="/" component={Home} exact />
-                <Route path="/portfolio" component={MyPortfolio} />
-                <Route path="/coin/:id" component={CoinDetail} />
-                <Route path="/explore" component={Explore} />
-                <Route path="*" component={NotFound} />
-              </Switch>
-            </Container>
-          </Grow>
+          <div>
+            <Grow in timeout={350}>
+              <Container maxWidth="lg">
+                <Navbar
+                  isDarkTheme={isDarkTheme}
+                  handleThemeChange={handleThemeChange}
+                />
+              </Container>
+            </Grow>
+            <Grow in timeout={550}>
+              <Container component="main" maxWidth="lg">
+                <Switch>
+                  <Route path="/" component={Home} exact />
+                  <Route path="/portfolio" component={MyPortfolio} />
+                  <Route path="/coin/:id" component={CoinDetail} />
+                  <Route path="/explore" component={Explore} />
+                  <Route path="*" component={NotFound} />
+                </Switch>
+              </Container>
+            </Grow>
+          </div>
+          <div>
+            <Grow in timeout={750}>
+              <Container maxWidth="lg">
+                <Footer />
+              </Container>
+            </Grow>
+          </div>
         </MuiThemeProvider>
       </Router>
     </div>
