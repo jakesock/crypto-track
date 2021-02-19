@@ -39,9 +39,12 @@
 
 #### Coin Detail:
 
-- [ ] Coin Graph
+- [x] Coin Graph
+- [ ] Style Graph
 - [ ] Coin Overview Section
 - [ ] Back button
+- [ ] Clean Up Page Component
+- [ ] Change time frame selection from buttons to dropdown
 
 #### Footer:
 
