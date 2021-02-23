@@ -2,7 +2,12 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useActions } from '../../../hooks/useActions';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import { CoinHistoryTimeFrames, PriceHistoryList } from '../../../state';
+import {
+  CoinHistoryLabels,
+  CoinHistoryTimeFrames,
+  PriceHistoryList,
+} from '../../../state';
+import CoinDetailHeader from '../../CoinDetailHeader';
 import CoinChart from '../../CoinChart';
 
 export type PriceData = {
@@ -10,8 +15,14 @@ export type PriceData = {
   y: number;
 }[];
 
+export type CoinDetailData = {
+  price: PriceData;
+  historyLabel: CoinHistoryLabels;
+};
+
 const CoinDetail: React.FC = () => {
   const [timeFrame, setTimeFrame] = useState(CoinHistoryTimeFrames.day);
+  const [data, setData] = useState<CoinDetailData | null>(null);
   const { id } = useParams<{ id: string }>();
   const { getCoin } = useActions();
 
@@ -43,20 +54,29 @@ const CoinDetail: React.FC = () => {
     getCoin(id, preferredCurrency, timeFrame);
   }, [getCoin, id, preferredCurrency, timeFrame]);
 
+  useEffect(() => {
+    if (!loading && coinDetails && coinHistory) {
+      setData({
+        price: formatPriceData(coinHistory.price),
+        historyLabel: coinHistory.label,
+      });
+    }
+  }, [coinDetails, coinHistory, loading]);
+
   return (
     <div>
-      {!loading && coinDetails && coinHistory ? (
+      {!loading && coinDetails && data && coinHistory ? (
         <div>
-          <h2>CoinDetail for {coinDetails.name}</h2>
-          <CoinChart
-            data={{
-              price: formatPriceData(coinHistory.price),
-              historyLabel: coinHistory.label,
-            }}
-            currency={preferredCurrency}
+          <CoinDetailHeader
+            data={data}
             details={coinDetails}
             timeFrame={timeFrame}
             setTimeFrame={setTimeFrame}
+          />
+          <CoinChart
+            priceHistory={formatPriceData(coinHistory.price)}
+            currency={preferredCurrency}
+            details={coinDetails}
           />
         </div>
       ) : (

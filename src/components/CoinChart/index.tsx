@@ -3,42 +3,33 @@ import { Chart } from 'chart.js';
 import { Paper, useTheme, Typography } from '@material-ui/core';
 import { chartOptions } from '../../config/chart';
 import { PriceData } from '../pages/CoinDetail';
-import { Coin, CoinHistoryTimeFrames, CoinHistoryLabels } from '../../state';
-import TimeFrameSelect from './TimeFrameSelect';
-
+import { Coin } from '../../state';
 import { useStyles } from './styles';
 
 interface CoinChartProps {
-  data: {
-    price: PriceData;
-    historyLabel: CoinHistoryLabels;
-  };
+  priceHistory: PriceData;
   currency: string;
   details: Coin;
-  timeFrame: CoinHistoryTimeFrames;
-  setTimeFrame: React.Dispatch<React.SetStateAction<CoinHistoryTimeFrames>>;
 }
 
 const CoinChart: React.FC<CoinChartProps> = ({
-  data,
+  priceHistory,
   currency,
   details,
-  timeFrame,
-  setTimeFrame,
 }) => {
   const chartRef = useRef<HTMLCanvasElement>(null);
   const theme = useTheme();
   const classes = useStyles();
 
   useEffect(() => {
-    if (chartRef && chartRef.current && data && details) {
+    if (chartRef && chartRef.current && priceHistory && details) {
       new Chart(chartRef.current, {
         type: 'line',
         data: {
           datasets: [
             {
               label: `${details.name} Price (${currency.toUpperCase()})`,
-              data: data.price,
+              data: priceHistory,
               backgroundColor: 'rgba(102, 152, 255, .4)',
               borderColor: theme.palette.primary.main,
               borderWidth: 2,
@@ -50,16 +41,12 @@ const CoinChart: React.FC<CoinChartProps> = ({
         options: chartOptions,
       });
     }
-  }, [theme, data, currency, details]);
+  }, [theme, priceHistory, currency, details]);
 
   const renderedPrice = () => {
     if (details) {
       return (
         <>
-          <Typography variant="h5" component="p">
-            {details.name} Price History Last {data.historyLabel}
-          </Typography>
-          <TimeFrameSelect timeFrame={timeFrame} setTimeFrame={setTimeFrame} />
           <Typography variant="h6" component="p">
             Current Price ({currency.toUpperCase()}):{' '}
             {details.current_price.toFixed(2)}

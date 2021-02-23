@@ -43,6 +43,7 @@
 
 - [x] Coin Graph
 - [ ] Style Graph and Graph Content
+- [x] Style Page Header
 - [ ] Coin Overview Section
 - [ ] Back button
 - [ ] Clean Up Page Component
