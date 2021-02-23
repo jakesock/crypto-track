@@ -1,4 +1,5 @@
-import { Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { Grid, Card, CardContent, Typography } from '@material-ui/core';
 import { CoinResult } from '../../../state/Coin';
 
 import { useStyles } from './styles';
@@ -15,15 +16,45 @@ const SearchResult: React.FC<SearchResultProps> = ({ coin }) => {
 
   // STYLE THIS
   return (
-    <Grid container>
+    <Grid container className={classes.root}>
       <Grid item xs={12}>
-        <div className={classes.root}>
-          <img src={large} alt={name} />
-          <p>
-            {name} ({symbol})
-          </p>
-          <p>#{market_cap_rank}</p>
-        </div>
+        <Link className={classes.link} to={`/coin/${id}`}>
+          <li className={classes.li}>
+            <Card>
+              <CardContent className={classes.cardContent}>
+                <Grid item xs={4}>
+                  <Grid container justify="center">
+                    <img
+                      className={classes.image}
+                      src={large}
+                      alt={`${name} Logo`}
+                    />
+                  </Grid>
+                </Grid>
+                <Grid item xs={4}>
+                  <Grid container justify="center">
+                    <Typography className={classes.name} variant="h6" component="p">
+                      {name}&nbsp;({symbol.toUpperCase()})
+                    </Typography>
+                  </Grid>
+                </Grid>
+                <Grid item xs={4}>
+                  <Grid container justify="center">
+                    {market_cap_rank && (
+                      <Typography
+                        className={classes.rank}
+                        variant="body1"
+                        component="p"
+                      >
+                        #{market_cap_rank}
+                      </Typography>
+                    )}
+                  </Grid>
+                </Grid>
+              </CardContent>
+            </Card>
+          </li>
+        </Link>
       </Grid>
     </Grid>
   );

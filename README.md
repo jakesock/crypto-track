@@ -18,11 +18,13 @@
 
 - [x] Add search bar
 - [ ] Middle of page contains "Popular Recently" section before search
-- [ ] Style Results
+- [x] Style Results
+- [ ] Add Hover effect to results
 - [x] Populate list under search bar for matching queries
 - [x] "No results found for _x_" when no results found
 - [ ] Allow user to add to their portfolio from explore page
-- [ ] Save to Local Storage
+- [ ] Save addeed to Local Storage
+- [ ] Revisit styling later on
 
 #### My Portfolio:
 
