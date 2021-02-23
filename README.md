@@ -17,6 +17,7 @@
 #### Explore:
 
 - [x] Add search bar
+      = [ ] Horizontal Rule between bar and results IF results && term
 - [ ] Middle of page contains "Popular Recently" section before search
 - [x] Style Results
 - [ ] Add Hover effect to results
