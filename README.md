@@ -17,7 +17,7 @@
 #### Explore:
 
 - [x] Add search bar
-      = [ ] Horizontal Rule between bar and results IF results && term
+- [ ] Horizontal Rule between bar and results IF results && term
 - [ ] Middle of page contains "Popular Recently" section before search
 - [x] Style Results
 - [ ] Add Hover effect to results
@@ -67,6 +67,16 @@
 - [ ] Style loading screens
 - [ ] Revamp Light Theme Palette
 - [ ] Revisit Dark Theme Palette
+- [ ] Fix mobile styling
+
+#### Logic/State
+
+- [ ] Make preferred currency an object with both symbol and shorthand
+- [ ] Save preferred currency to local storage
+- [ ] Save theme preference to local storage
+- [ ] Make settings dropdown with these two options, replacing sun icon-button in nav with a gear icon-button
+- [ ] Seperate timeframe state from whole detail page to remove unnecessary re-rendering
+- [ ] Extract preferences into own state in redux store
 
 #### Code Base
 
@@ -76,3 +86,4 @@
 - [ ] Go over types and add them where necessary
 - [ ] Go over all of code once or twice and see what can be improved and improve variable names/add notes if needed
 - [ ] Refactor App Component
+- [ ] Revisit all styles and make them more theme-centric (see SearchBar/styles.ts for reference on how you want all of it to look)

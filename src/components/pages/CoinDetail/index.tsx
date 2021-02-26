@@ -7,8 +7,12 @@ import {
   CoinHistoryTimeFrames,
   PriceHistoryList,
 } from '../../../state';
+import BackButton from '../../BackButton';
 import CoinDetailHeader from '../../CoinDetailHeader';
 import CoinChart from '../../CoinChart';
+import CoinOverview from '../../CoinOverview';
+import DetailSectionHeader from '../../DetailSectionHeader';
+import CurrentPrice from 'src/components/CurrentPrice';
 
 export type PriceData = {
   x: number;
@@ -26,6 +30,7 @@ const CoinDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { getCoin } = useActions();
 
+  // Make useChartData Hook
   const formatPriceData = (data: PriceHistoryList): PriceData => {
     return data.map((item) => {
       return {
@@ -64,25 +69,33 @@ const CoinDetail: React.FC = () => {
   }, [coinDetails, coinHistory, loading]);
 
   return (
-    <div>
+    <main>
       {!loading && coinDetails && data && coinHistory ? (
         <div>
-          <CoinDetailHeader
-            data={data}
-            details={coinDetails}
-            timeFrame={timeFrame}
-            setTimeFrame={setTimeFrame}
-          />
-          <CoinChart
-            priceHistory={formatPriceData(coinHistory.price)}
-            currency={preferredCurrency}
-            details={coinDetails}
-          />
+          <div>
+            <BackButton>Back</BackButton>
+          </div>
+          <CoinDetailHeader coin={coinDetails} />
+          <CurrentPrice coin={coinDetails} />
+          <section>
+            <DetailSectionHeader timeFrame={timeFrame} setTimeFrame={setTimeFrame}>
+              Price History Last {coinHistory.label}
+            </DetailSectionHeader>
+            <CoinChart
+              priceHistory={formatPriceData(coinHistory.price)}
+              currency={preferredCurrency}
+              details={coinDetails}
+            />
+          </section>
+          <section>
+            <DetailSectionHeader>Overview</DetailSectionHeader>
+            <CoinOverview coin={coinDetails} />
+          </section>
         </div>
       ) : (
         'loading...'
       )}
-    </div>
+    </main>
   );
 };
 

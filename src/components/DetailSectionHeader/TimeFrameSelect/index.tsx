@@ -19,8 +19,6 @@ const TimeFrameSelect: React.FC<TimeFrameSelectProps> = ({
     setTimeFrame(event.target.value as CoinHistoryTimeFrames);
   };
 
-  console.log(setTimeFrame);
-
   return (
     <div>
       <FormControl variant="outlined" className={classes.formControl}>

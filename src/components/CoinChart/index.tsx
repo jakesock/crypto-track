@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { Chart } from 'chart.js';
-import { Paper, useTheme, Typography } from '@material-ui/core';
+import { Paper, useTheme } from '@material-ui/core';
 import { chartOptions } from '../../config/chart';
 import { PriceData } from '../pages/CoinDetail';
 import { Coin } from '../../state';
@@ -43,34 +43,8 @@ const CoinChart: React.FC<CoinChartProps> = ({
     }
   }, [theme, priceHistory, currency, details]);
 
-  const renderedPrice = () => {
-    if (details) {
-      return (
-        <>
-          <Typography variant="h6" component="p">
-            Current Price ({currency.toUpperCase()}):{' '}
-            {details.current_price.toFixed(2)}
-          </Typography>
-          <Typography variant="h6" component="p">
-            Price Change Last 24 Hours:{' '}
-            <span
-              className={`${classes.priceChange} ${
-                details.price_change_24h < 0 ? classes.negative : classes.positive
-              }`}
-            >
-              {details.price_change_percentage_24h.toFixed(2)}%
-            </span>
-          </Typography>
-        </>
-      );
-    } else {
-      return;
-    }
-  };
-
   return (
     <Paper className={classes.paper}>
-      <div>{renderedPrice()}</div>
       <div>
         <canvas
           ref={chartRef}

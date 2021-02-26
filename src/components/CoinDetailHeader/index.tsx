@@ -1,35 +1,22 @@
-import { Typography } from '@material-ui/core';
-import { Coin, CoinHistoryLabels, CoinHistoryTimeFrames } from '../../state';
-import { PriceData } from '../pages/CoinDetail';
-import TimeFrameSelect from './TimeFrameSelect';
+import { Coin } from '../../state';
+import Typography from '@material-ui/core/Typography';
 
 import { useStyles } from './styles';
 
 interface CoinDetailHeaderProps {
-  data: {
-    price: PriceData;
-    historyLabel: CoinHistoryLabels;
-  };
-  details: Coin;
-  timeFrame: CoinHistoryTimeFrames;
-  setTimeFrame: React.Dispatch<React.SetStateAction<CoinHistoryTimeFrames>>;
+  coin: Coin;
 }
 
-const CoinDetailHeader: React.FC<CoinDetailHeaderProps> = ({
-  details,
-  data,
-  timeFrame,
-  setTimeFrame,
-}) => {
+const CoinDetailHeader: React.FC<CoinDetailHeaderProps> = ({ coin }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Typography variant="h5" component="p">
-        {details.name} Price History Last {data.historyLabel}
+    <header className={classes.root}>
+      <img className={classes.image} src={coin.image} alt={`${coin.name} Logo`} />
+      <Typography className={classes.title} variant="h2">
+        {coin.name}&nbsp;({coin.symbol.toUpperCase()})
       </Typography>
-      <TimeFrameSelect timeFrame={timeFrame} setTimeFrame={setTimeFrame} />
-    </div>
+    </header>
   );
 };
 

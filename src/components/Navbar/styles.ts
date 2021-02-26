@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '1rem 0',
+    margin: theme.spacing(2, 0, 3, 0),
   },
   navOptions: {
     display: 'flex',

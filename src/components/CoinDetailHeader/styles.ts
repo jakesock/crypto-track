@@ -1,10 +1,16 @@
-import { makeStyles, Theme } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: theme.spacing(2),
+    margin: theme.spacing(4, 0, 6, 0),
+  },
+  title: {
+    marginLeft: theme.spacing(1.5),
+  },
+  image: {
+    width: theme.spacing(7.5),
   },
 }));
