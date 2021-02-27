@@ -3,12 +3,7 @@ import { Dispatch } from 'redux';
 import { ActionType } from '../actionTypes';
 import { GetCoinAction, SetCoinLoadingAction } from '../actions';
 import { api } from '../../apis';
-import {
-  Coin,
-  CoinHistoryTimeFrames,
-  getCoinHistoryLabel,
-  PriceHistoryList,
-} from '../Coin';
+import { CoinHistoryTimeFrames, getCoinHistoryLabel } from '../Coin';
 
 export const getCoin = (
   id: string,
@@ -21,8 +16,8 @@ export const getCoin = (
     const coinDetails = await api.getCoinDetails(id, preferredCurrency);
     const coinHistory = await api.getCoinHistory(id, preferredCurrency, numDays);
 
-    const coin: Coin = coinDetails.data[0];
-    const priceHistory: PriceHistoryList = coinHistory.data.prices;
+    const coin = coinDetails.data[0];
+    const priceHistory = coinHistory.data.prices;
     const label = getCoinHistoryLabel(numDays);
 
     dispatch({

@@ -9,16 +9,19 @@ import {
   DeletePortfolioCoinAction,
   SetPortfolioLoadingAction,
 } from '../actions';
-import { CoinHistoryTimeFrames, CoinsListState, PriceHistoryList } from '../Coin';
+import { CoinHistoryTimeFrames, CoinsListState, CoinHistoryList } from '../Coin';
 
 export const getPortfolio = (): AppThunk => async (
   dispatch: Dispatch<GetPortfolioAction | SetPortfolioLoadingAction>,
+  getState,
 ) => {
   try {
     // Set loading state to true
     dispatch({ type: ActionType.SET_PORTFOLIO_LOADING });
 
-    const preferredCurrency = localStorage.getItem('preferredCurrency') ?? 'usd';
+    // Get preferred currency from store
+    const { preferences } = getState();
+    const preferredCurrency = preferences.currency.nameLower;
 
     // Get saved coins from local storage
     const savedCoins = localStorage.getItem('coinsList') ?? DEFAULT_COINS.join(',');
@@ -34,16 +37,15 @@ export const getPortfolio = (): AppThunk => async (
       preferredCurrency,
       CoinHistoryTimeFrames.day,
     );
-    const favoriteHistory: PriceHistoryList = historyResponse.data.prices;
+    const favoriteHistory: CoinHistoryList = historyResponse.data.prices;
 
-    dispatch({
+    dispatch<GetPortfolioAction>({
       type: ActionType.GET_PORTFOLIO,
       payload: {
         coins,
         order: savedCoins.split(','),
         favorites,
         favoriteHistory,
-        preferredCurrency,
       },
     });
   } catch (err) {
@@ -51,9 +53,39 @@ export const getPortfolio = (): AppThunk => async (
   }
 };
 
-export const deletePortfolioCoin = (id: string): DeletePortfolioCoinAction => {
-  return {
-    type: ActionType.DELETE_PORTFOLIO_COIN,
-    payload: id,
-  };
+export const deletePortfolioCoin = (id: string): AppThunk => async (
+  dispatch: Dispatch<DeletePortfolioCoinAction>,
+  getState,
+) => {
+  try {
+    const {
+      portfolio: { order },
+      preferences: { currency },
+    } = getState();
+
+    // Update coin list order and favorites list
+    // I originally had this in the reducer but I needed to make an API call
+    // to update the graph on the home page. Will be revisiting this.
+    const updatedOrder = order.filter((coin) => coin !== id);
+    const favorites = updatedOrder.slice(0, 3);
+
+    const { data } = await api.getCoinHistory(
+      favorites[0],
+      currency.nameLower,
+      CoinHistoryTimeFrames.day,
+    );
+    const favoriteHistory: CoinHistoryList = data.prices;
+
+    dispatch({
+      type: ActionType.DELETE_PORTFOLIO_COIN,
+      payload: {
+        id,
+        order: updatedOrder,
+        favorites,
+        favoriteHistory,
+      },
+    });
+  } catch (err) {
+    console.log('deletePortfolioCoin', err);
+  }
 };

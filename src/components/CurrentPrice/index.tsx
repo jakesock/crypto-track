@@ -12,17 +12,18 @@ const CurrentPrice: React.FC<CurrentPriceProps> = ({ coin }) => {
   const classes = useStyles();
 
   const currency = useTypedSelector((state) => {
-    return state.portfolio.preferredCurrency;
+    return state.preferences.currency;
   });
 
   return (
     <div className={classes.root}>
       <div className={classes.contentWrapper}>
         <Typography className={classes.label} variant="body1" component="p">
-          Current Price ({currency.toUpperCase()}):
+          Current Price ({currency.nameUpper}):
         </Typography>
         <Typography className={classes.data} variant="h6" component="p">
-          ${coin.current_price.toFixed(2)}
+          {currency.symbol}
+          {coin.current_price.toFixed(2)}
         </Typography>
       </div>
       <div className={classes.contentWrapper}>

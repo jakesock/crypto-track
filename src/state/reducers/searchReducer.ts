@@ -1,11 +1,11 @@
 import produce from 'immer';
 import { ActionType } from '../actionTypes';
 import { Action } from '../actions';
-import { SearchResult } from '../Coin';
+import { CoinResult } from '../Coin';
 
 interface SearchState {
   loading: boolean;
-  results: SearchResult;
+  results: CoinResult[];
   failed: boolean;
   term: string;
 }

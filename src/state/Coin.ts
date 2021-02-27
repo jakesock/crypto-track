@@ -42,13 +42,17 @@ interface Roi {
   percentage: number;
 }
 
-export interface CoinHistory {
-  price: PriceHistoryList;
+export type CoinHistory = {
+  price: CoinHistoryList;
   label: CoinHistoryLabels;
-}
+};
 
-export type PriceHistoryList = PriceHistoryData[];
-export type PriceHistoryData = [number, number];
+export type CoinHistoryList = CoinHistoryData[];
+export type CoinHistoryData = [number, number];
+
+export type CoinHistoryAPIResponse = {
+  [key: string]: CoinHistoryList;
+};
 
 export enum CoinHistoryTimeFrames {
   day = '1',
@@ -87,13 +91,27 @@ export function getCoinHistoryLabel(
   }
 }
 
-export type SearchResult = CoinResult[];
+// Search Result Types
+export type APISearchResults = {
+  coins: CoinResult[];
+  exchanges: ExchangeResult[];
+  icos: IcosResult;
+};
 
-export interface CoinResult {
+export interface SearchResult {
   id: string;
   name: string;
-  symbol: string;
-  market_cap_rank: number | null;
   thumb: string;
   large: string;
 }
+
+export interface CoinResult extends SearchResult {
+  symbol: string;
+  market_cap_rank: number | null;
+}
+
+export interface ExchangeResult extends SearchResult {
+  market_type: string;
+}
+
+export type IcosResult = [];

@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useActions } from '../../../hooks/useActions';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { useChartData } from '../../../hooks/useChartData';
 import {
   CoinHistoryLabels,
   CoinHistoryTimeFrames,
-  PriceHistoryList,
+  CoinHistoryList,
 } from '../../../state';
 import BackButton from '../../BackButton';
 import CoinDetailHeader from '../../CoinDetailHeader';
@@ -31,7 +32,7 @@ const CoinDetail: React.FC = () => {
   const { getCoin } = useActions();
 
   // Make useChartData Hook
-  const formatPriceData = (data: PriceHistoryList): PriceData => {
+  const formatPriceData = (data: CoinHistoryList): PriceData => {
     return data.map((item) => {
       return {
         x: item[0],
@@ -49,15 +50,15 @@ const CoinDetail: React.FC = () => {
   const coinHistory = useTypedSelector(({ coinDetail: { history } }) => {
     return history;
   });
-  const preferredCurrency = useTypedSelector(
-    ({ portfolio: { preferredCurrency } }) => {
-      return preferredCurrency;
-    },
-  );
+  const currency = useTypedSelector(({ preferences }) => {
+    return preferences.currency.nameUpper;
+  });
+
+  const priceHistory = useChartData(coinHistory.price);
 
   useEffect(() => {
-    getCoin(id, preferredCurrency, timeFrame);
-  }, [getCoin, id, preferredCurrency, timeFrame]);
+    getCoin(id, currency, timeFrame);
+  }, [getCoin, id, currency, timeFrame]);
 
   useEffect(() => {
     if (!loading && coinDetails && coinHistory) {
@@ -70,7 +71,7 @@ const CoinDetail: React.FC = () => {
 
   return (
     <main>
-      {!loading && coinDetails && data && coinHistory ? (
+      {!loading && coinDetails && data && priceHistory.length ? (
         <div>
           <div>
             <BackButton>Back</BackButton>
@@ -82,8 +83,8 @@ const CoinDetail: React.FC = () => {
               Price History Last {coinHistory.label}
             </DetailSectionHeader>
             <CoinChart
-              priceHistory={formatPriceData(coinHistory.price)}
-              currency={preferredCurrency}
+              priceHistory={priceHistory}
+              currency={currency}
               details={coinDetails}
             />
           </section>

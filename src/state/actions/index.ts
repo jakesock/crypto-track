@@ -3,8 +3,8 @@ import {
   Coin,
   CoinHistoryLabels,
   CoinsListState,
-  PriceHistoryList,
-  SearchResult,
+  CoinHistoryList,
+  CoinResult,
 } from '../Coin';
 
 // Portfolio Actions
@@ -18,14 +18,18 @@ export interface GetPortfolioAction {
     coins: CoinsListState;
     order: string[];
     favorites: string[];
-    favoriteHistory: PriceHistoryList;
-    preferredCurrency: string;
+    favoriteHistory: CoinHistoryList;
   };
 }
 
 export interface DeletePortfolioCoinAction {
   type: ActionType.DELETE_PORTFOLIO_COIN;
-  payload: string;
+  payload: {
+    id: string;
+    order: string[];
+    favorites: string[];
+    favoriteHistory: CoinHistoryList;
+  };
 }
 
 // Single Coin Actions
@@ -37,7 +41,7 @@ export interface GetCoinAction {
   type: ActionType.GET_COIN;
   payload: {
     detail: Coin;
-    priceHistory: PriceHistoryList;
+    priceHistory: CoinHistoryList;
     label: CoinHistoryLabels;
   };
 }
@@ -45,7 +49,10 @@ export interface GetCoinAction {
 // Search Actions
 export interface SearchCoinsAction {
   type: ActionType.SEARCH_COINS;
-  payload: { results: SearchResult; term: string };
+  payload: {
+    results: CoinResult[];
+    term: string;
+  };
 }
 
 export interface SetSearchLoadingAction {

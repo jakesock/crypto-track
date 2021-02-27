@@ -23,12 +23,12 @@ const CoinChart: React.FC<CoinChartProps> = ({
 
   useEffect(() => {
     if (chartRef && chartRef.current && priceHistory && details) {
-      new Chart(chartRef.current, {
+      const chart = new Chart(chartRef.current, {
         type: 'line',
         data: {
           datasets: [
             {
-              label: `${details.name} Price (${currency.toUpperCase()})`,
+              label: `${details.name} Price (${currency})`,
               data: priceHistory,
               backgroundColor: 'rgba(102, 152, 255, .4)',
               borderColor: theme.palette.primary.main,
@@ -40,12 +40,14 @@ const CoinChart: React.FC<CoinChartProps> = ({
         },
         options: chartOptions,
       });
+
+      chart.update();
     }
   }, [theme, priceHistory, currency, details]);
 
   return (
     <Paper className={classes.paper}>
-      <div>
+      <div className={classes.canvasContainer}>
         <canvas
           ref={chartRef}
           id="coinChart"

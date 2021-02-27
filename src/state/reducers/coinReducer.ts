@@ -1,18 +1,21 @@
 import produce from 'immer';
 import { ActionType } from '../actionTypes';
 import { Action } from '../actions';
-import { Coin, CoinHistory } from '../Coin';
+import { Coin, CoinHistory, CoinHistoryLabels } from '../Coin';
 
 interface CoinState {
   loading: boolean;
   detail: Coin | null;
-  history: CoinHistory | null;
+  history: CoinHistory;
 }
 
 const initialState: CoinState = {
   loading: false,
   detail: null,
-  history: null,
+  history: {
+    price: [],
+    label: CoinHistoryLabels.day,
+  },
 };
 
 const reducer = produce(

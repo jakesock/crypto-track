@@ -8,6 +8,7 @@ import CoinCardOptions from './CoinCardOptions';
 import { Coin } from '../../state';
 
 import { useStyles } from './styles';
+import { useTypedSelector } from 'src/hooks/useTypedSelector';
 
 interface CoinCardProps {
   coin: Coin;
@@ -16,6 +17,9 @@ interface CoinCardProps {
 const CoinCard: React.FC<CoinCardProps> = ({ coin }) => {
   const classes = useStyles();
   const priceChangeIsNegative = coin.price_change_percentage_24h < 0;
+  const currencySymbol = useTypedSelector(
+    (state) => state.preferences.currency.symbol,
+  );
 
   return (
     <Link className={classes.root} to={`/coin/${coin.id}`}>
@@ -42,7 +46,8 @@ const CoinCard: React.FC<CoinCardProps> = ({ coin }) => {
               </Grid>
               <Grid item xs={3}>
                 <Typography variant="body1">
-                  ${coin.current_price.toFixed(2)}
+                  {currencySymbol}
+                  {coin.current_price.toFixed(2)}
                 </Typography>
               </Grid>
               <Grid item xs={3}>
