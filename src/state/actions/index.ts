@@ -15,10 +15,11 @@ export interface SetPortfolioLoadingAction {
 export interface GetPortfolioAction {
   type: ActionType.GET_PORTFOLIO;
   payload: {
-    preferredCurrency: string;
-    favorites: string[];
     coins: CoinsListState;
     order: string[];
+    favorites: string[];
+    favoriteHistory: PriceHistoryList;
+    preferredCurrency: string;
   };
 }
 
@@ -56,6 +57,30 @@ export interface SetSearchFailedAction {
   payload: string;
 }
 
+// Preferences Actions
+export interface Currency {
+  symbol: string;
+  nameLower: string;
+  nameUpper: string;
+}
+export interface GetPreferencesAction {
+  type: ActionType.GET_PREFERENCES;
+  payload: {
+    isDarkTheme: boolean;
+    currency: Currency;
+  };
+}
+
+export interface SetThemeAction {
+  type: ActionType.SET_THEME;
+  payload: boolean;
+}
+
+export interface SetCurrencyAction {
+  type: ActionType.SET_CURRENCY;
+  payload: Currency;
+}
+
 export type Action =
   | SetPortfolioLoadingAction
   | GetPortfolioAction
@@ -64,4 +89,7 @@ export type Action =
   | GetCoinAction
   | SearchCoinsAction
   | SetSearchLoadingAction
-  | SetSearchFailedAction;
+  | SetSearchFailedAction
+  | GetPreferencesAction
+  | SetThemeAction
+  | SetCurrencyAction;

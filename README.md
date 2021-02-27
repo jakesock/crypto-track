@@ -24,7 +24,7 @@
 - [x] Populate list under search bar for matching queries
 - [x] "No results found for _x_" when no results found
 - [ ] Allow user to add to their portfolio from explore page
-- [ ] Save addeed to Local Storage
+- [ ] Save added to Local Storage
 - [ ] Revisit styling later on
 
 #### My Portfolio:
@@ -36,7 +36,6 @@
 - [ ] Show amount owned and current value in preferred currency
 - [x] Add ability to delete
 - [x] Style delete button
-- [ ] Add ability to change preferred currency
 - [ ] Add "top 3" list which, when populated, become the 3 displayed on the home page
 - [ ] Add switch to go from general tracking to top 3 favorites
 
@@ -45,8 +44,8 @@
 - [x] Coin Graph
 - [ ] Style Graph and Graph Content
 - [x] Style Page Header
-- [ ] Coin Overview Section
-- [ ] Back button
+- [x] Coin Overview Section
+- [x] Back button
 - [ ] Clean Up Page Component
 - [x] Add time frame selection
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { MuiThemeProvider, Container, CssBaseline, Grow } from '@material-ui/core';
 
@@ -14,21 +14,22 @@ import Footer from './Footer';
 
 import { lightTheme, darkTheme } from '../theme';
 import { useStyles } from './styles';
+import { useTypedSelector } from 'src/hooks/useTypedSelector';
 
 const App: React.FC = () => {
-  const [isDarkTheme, setisDarkTheme] = useState(true);
+  const isDarkTheme = useTypedSelector((state) => state.preferences.isDarkTheme);
   const theme = isDarkTheme ? darkTheme : lightTheme;
   const classes = useStyles();
+  const { getPortfolio, getPreferences, setTheme } = useActions();
 
   const handleThemeChange = () => {
-    setisDarkTheme(!isDarkTheme);
+    setTheme(!isDarkTheme);
   };
 
-  const { getPortfolio } = useActions();
-
   useEffect(() => {
+    getPreferences();
     getPortfolio();
-  }, [getPortfolio]);
+  }, [getPortfolio, getPreferences]);
 
   return (
     <div className={classes.root}>

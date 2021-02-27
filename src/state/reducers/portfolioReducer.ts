@@ -1,13 +1,14 @@
 import produce from 'immer';
 import { ActionType } from '../actionTypes';
 import { Action } from '../actions';
-import { CoinsListState } from '../Coin';
+import { CoinsListState, PriceHistoryList } from '../Coin';
 
 interface PortfolioState {
   loading: boolean;
   coins: CoinsListState;
   order: string[];
   favorites: string[];
+  favoriteHistory: PriceHistoryList;
   preferredCurrency: string;
 }
 
@@ -16,6 +17,7 @@ const initialState: PortfolioState = {
   coins: {},
   order: [],
   favorites: [],
+  favoriteHistory: [],
   preferredCurrency: 'usd',
 };
 
@@ -28,6 +30,7 @@ const reducer = produce(
           coins: action.payload.coins,
           order: action.payload.order,
           favorites: action.payload.favorites,
+          favoriteHistory: action.payload.favoriteHistory,
           preferredCurrency: action.payload.preferredCurrency,
         };
         return state;
@@ -35,9 +38,7 @@ const reducer = produce(
       case ActionType.DELETE_PORTFOLIO_COIN:
         delete state.coins[action.payload];
         state.order = state.order.filter((id) => id !== action.payload);
-        if (state.favorites.includes(action.payload)) {
-          state.favorites = state.favorites.filter((id) => id !== action.payload);
-        }
+        state.favorites = state.order.slice(0, 3);
         return state;
 
       case ActionType.SET_PORTFOLIO_LOADING:
