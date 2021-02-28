@@ -20,7 +20,7 @@ const App: React.FC = () => {
   const isDarkTheme = useTypedSelector((state) => state.preferences.isDarkTheme);
   const theme = isDarkTheme ? darkTheme : lightTheme;
   const classes = useStyles();
-  const { getPortfolio, getPreferences, setTheme } = useActions();
+  const { getPortfolio, getTrending, getPreferences, setTheme } = useActions();
 
   const handleThemeChange = () => {
     setTheme(!isDarkTheme);
@@ -29,7 +29,8 @@ const App: React.FC = () => {
   useEffect(() => {
     getPreferences();
     getPortfolio();
-  }, [getPortfolio, getPreferences]);
+    getTrending();
+  }, [getPortfolio, getPreferences, getTrending]);
 
   return (
     <div className={classes.root}>

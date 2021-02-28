@@ -5,6 +5,7 @@ import {
   CoinsListState,
   CoinHistoryList,
   CoinResult,
+  TrendingCoinResult,
 } from '../Coin';
 
 // Portfolio Actions
@@ -64,6 +65,16 @@ export interface SetSearchFailedAction {
   payload: string;
 }
 
+// Trending Actions
+export interface SetTrendingLoadingAction {
+  type: ActionType.SET_TRENDING_LOADING;
+}
+
+export interface GetTrendingAction {
+  type: ActionType.GET_TRENDING;
+  payload: TrendingCoinResult[];
+}
+
 // Preferences Actions
 export interface Currency {
   symbol: string;
@@ -99,4 +110,6 @@ export type Action =
   | SetSearchFailedAction
   | GetPreferencesAction
   | SetThemeAction
-  | SetCurrencyAction;
+  | SetCurrencyAction
+  | SetTrendingLoadingAction
+  | GetTrendingAction;

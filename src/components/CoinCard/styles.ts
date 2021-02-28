@@ -11,21 +11,20 @@ export const useStyles = makeStyles((theme: Theme) => ({
     position: 'relative',
     padding: '.5em',
     marginBottom: '1rem',
-    boxShadow:
-      '0px 3px 3px -1px rgb(0 0 0 / 20%), 0px 3px 4px 1px rgb(0 0 0 / 14%), 0px 2px 4px 1px rgb(0 0 0 / 12%)',
+    transition: 'transform 300ms, box-shadow 2000ms cubic-bezier(.165, .84, .44, 1)',
     '& .MuiCardContent-root': {
       padding: '1rem 1rem',
     },
     '&:hover': {
-      boxShadow:
-        '0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 10px 2px rgb(0 0 0 / 12%)',
+      boxShadow: '0 8px 17px 0 rgba(0 0 0 / 20%), 0 6px 20px 0 rgba(0 0 0 / 15%);',
+      transform: 'scale3d(1.006, 1.006, 1)',
       '& $cardOptionsContainer': {
         opacity: 1,
       },
     },
   },
   cardOptionsContainer: {
-    opacity: 0,
+    opacity: 0.45,
     transition: 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
   },
   image: {

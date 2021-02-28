@@ -4,6 +4,7 @@ import {
   CoinHistoryTimeFrames,
   CoinHistoryAPIResponse,
   APISearchResults,
+  APITrendingResults,
 } from '../state';
 
 const api = axios.create({
@@ -44,4 +45,8 @@ export const searchCoins = (
       query: term,
     },
   });
+};
+
+export const getTrendingCoins = (): Promise<AxiosResponse<APITrendingResults>> => {
+  return api.get('/search/trending');
 };

@@ -11,21 +11,23 @@
 
 #### Home:
 
-- [ ] Add Graph for top favorite coin
+- [x] Add Graph for top favorite coin
+- [ ] Add Top Favorite Details
 - [ ] Add Components for quick overview of next 2 most popular coins under the main graph
 
 #### Explore:
 
 - [x] Add search bar
-- [ ] Horizontal Rule between bar and results IF results && term
+- [x] Horizontal Rule between bar and results
 - [ ] Middle of page contains "Popular Recently" section before search
 - [x] Style Results
-- [ ] Add Hover effect to results
+- [x] Add Hover effect to results
 - [x] Populate list under search bar for matching queries
 - [x] "No results found for _x_" when no results found
 - [ ] Allow user to add to their portfolio from explore page
 - [ ] Save added to Local Storage
-- [ ] Revisit styling later on
+- [ ] Revisit styling
+- [ ] When search results are present, allow user to view trending
 
 #### My Portfolio:
 
@@ -33,11 +35,8 @@
 - [ ] Show "Portfolio empty, add crypto" message and link to Explore page when no saved coins
 - [ ] Add ability to filter based on current market price, A-Z, Z-A, amount owned, or filter by search term
 - [ ] Add ability to edit amount owned
-- [ ] Show amount owned and current value in preferred currency
 - [x] Add ability to delete
 - [x] Style delete button
-- [ ] Add "top 3" list which, when populated, become the 3 displayed on the home page
-- [ ] Add switch to go from general tracking to top 3 favorites
 
 #### Coin Detail:
 
@@ -45,6 +44,7 @@
 - [ ] Style Graph and Graph Content
 - [x] Style Page Header
 - [x] Coin Overview Section
+- [ ] Change coin Overview section to nice looking cards for each bit of information
 - [x] Back button
 - [ ] Clean Up Page Component
 - [x] Add time frame selection
@@ -70,12 +70,13 @@
 
 #### Logic/State
 
-- [ ] Make preferred currency an object with both symbol and shorthand
+- [x] Make preferred currency an object with both symbol and shorthand
+- [ ] Make currency options
 - [ ] Save preferred currency to local storage
 - [ ] Save theme preference to local storage
 - [ ] Make settings dropdown with these two options, replacing sun icon-button in nav with a gear icon-button
 - [ ] Seperate timeframe state from whole detail page to remove unnecessary re-rendering
-- [ ] Extract preferences into own state in redux store
+- [x] Extract preferences into own state in redux store
 
 #### Code Base
 
@@ -86,3 +87,4 @@
 - [ ] Go over all of code once or twice and see what can be improved and improve variable names/add notes if needed
 - [ ] Refactor App Component
 - [ ] Revisit all styles and make them more theme-centric (see SearchBar/styles.ts for reference on how you want all of it to look)
+- [ ] Find a way to make the coin card component reusable for both portfolio and explore pages. At the very least, make global styles

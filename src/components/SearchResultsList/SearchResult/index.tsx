@@ -12,15 +12,13 @@ const SearchResult: React.FC<SearchResultProps> = ({ coin }) => {
   const { id, name, symbol, market_cap_rank, large } = coin;
   const classes = useStyles();
 
-  console.log(id);
-
   // STYLE THIS
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12}>
         <Link className={classes.link} to={`/coin/${id}`}>
           <li className={classes.li}>
-            <Card>
+            <Card className={classes.card}>
               <CardContent className={classes.cardContent}>
                 <Grid item xs={4}>
                   <Grid container justify="center">
@@ -33,7 +31,12 @@ const SearchResult: React.FC<SearchResultProps> = ({ coin }) => {
                 </Grid>
                 <Grid item xs={4}>
                   <Grid container justify="center">
-                    <Typography className={classes.name} variant="h6" component="p">
+                    <Typography
+                      className={classes.name}
+                      variant="h6"
+                      component="p"
+                      align="center"
+                    >
                       {name}&nbsp;({symbol.toUpperCase()})
                     </Typography>
                   </Grid>
@@ -45,6 +48,7 @@ const SearchResult: React.FC<SearchResultProps> = ({ coin }) => {
                         className={classes.rank}
                         variant="body1"
                         component="p"
+                        align="center"
                       >
                         #{market_cap_rank}
                       </Typography>

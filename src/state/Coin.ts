@@ -1,3 +1,4 @@
+// Coin Types
 export interface CoinsListState {
   [key: string]: Coin;
 }
@@ -42,6 +43,7 @@ interface Roi {
   percentage: number;
 }
 
+// Coin History Types
 export type CoinHistory = {
   price: CoinHistoryList;
   label: CoinHistoryLabels;
@@ -91,7 +93,7 @@ export function getCoinHistoryLabel(
   }
 }
 
-// Search Result Types
+// Search Result Types (CoinGecko API)
 export type APISearchResults = {
   coins: CoinResult[];
   exchanges: ExchangeResult[];
@@ -115,3 +117,18 @@ export interface ExchangeResult extends SearchResult {
 }
 
 export type IcosResult = [];
+
+// Trending Result Types (CoinGecko API)
+
+export type APITrendingResults = {
+  coins: TrendingCoinResult[];
+  exchanges: TrendingExchangeResult[] | never[];
+};
+
+export interface TrendingCoinResult extends CoinResult {
+  score: number;
+}
+
+export interface TrendingExchangeResult extends ExchangeResult {
+  score: number;
+}
