@@ -1,11 +1,11 @@
 import { Paper, Grid } from '@material-ui/core';
-import CoinListHeader from './CoinListHeader';
-import CoinCard from '../CoinCard';
+import PortfolioListHeader from './PortfolioListHeader';
+import CoinCardList from '../CoinCardList';
 
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useStyles } from './styles';
 
-const CoinList: React.FC = () => {
+const PortfolioList: React.FC = () => {
   const loading = useTypedSelector(({ portfolio: { loading } }) => loading);
   const coins = useTypedSelector(({ portfolio: { coins, order } }) => {
     return order
@@ -17,15 +17,9 @@ const CoinList: React.FC = () => {
 
   const renderedCoins = () => {
     if (coins.length) {
-      return (
-        <ul className={classes.ul}>
-          {coins.map((coin) => {
-            return <CoinCard key={coin.id} coin={coin} />;
-          })}
-        </ul>
-      );
+      return <CoinCardList coins={coins} type="portfolio" />;
     } else {
-      // break out into own component, remove CoinListHeader in this case
+      // break out into own component, remove PortfolioListHeader in this case
       return <div>You don't have any saved coins!</div>;
     }
   };
@@ -36,7 +30,7 @@ const CoinList: React.FC = () => {
         <Paper className={classes.root}>
           <Grid container>
             <Grid item xs={12}>
-              <CoinListHeader />
+              <PortfolioListHeader />
             </Grid>
           </Grid>
           <Grid container>
@@ -50,4 +44,4 @@ const CoinList: React.FC = () => {
   );
 };
 
-export default CoinList;
+export default PortfolioList;

@@ -1,5 +1,7 @@
 import { ActionType } from '../actionTypes';
-import { Action, Currency } from '../actions';
+import { Action } from '../actions';
+import { Currency } from '../Coin';
+import { CURRENCIES } from '../../constants';
 
 interface PreferencesState {
   isDarkTheme: boolean;
@@ -8,11 +10,7 @@ interface PreferencesState {
 
 const initialState: PreferencesState = {
   isDarkTheme: true,
-  currency: {
-    symbol: '$',
-    nameLower: 'usd',
-    nameUpper: 'USD',
-  },
+  currency: CURRENCIES['usd'],
 };
 
 const reducer = (
@@ -25,6 +23,11 @@ const reducer = (
         ...state,
         isDarkTheme: action.payload.isDarkTheme,
         currency: action.payload.currency,
+      };
+    case ActionType.SET_CURRENCY:
+      return {
+        ...state,
+        currency: action.payload,
       };
     case ActionType.SET_THEME:
       return {

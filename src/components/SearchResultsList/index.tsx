@@ -1,8 +1,7 @@
 import { useStyles } from './styles';
 import { Grid, Typography, Divider } from '@material-ui/core';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-
-import SearchResult from './SearchResult';
+import CoinCardList from '../CoinCardList';
 
 const SearchResultsList: React.FC = () => {
   const classes = useStyles();
@@ -37,11 +36,7 @@ const SearchResultsList: React.FC = () => {
               <Divider className={classes.divider} variant="fullWidth" />
             </div>
           )}
-          <ul className={classes.ul}>
-            {results.map((coin) => {
-              return <SearchResult key={coin.id} coin={coin} />;
-            })}
-          </ul>
+          <CoinCardList coins={results} type="explore" />
         </>
       );
     }

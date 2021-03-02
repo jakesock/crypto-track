@@ -23,7 +23,7 @@ const CoinChart: React.FC<CoinChartProps> = ({
 
   useEffect(() => {
     if (chartRef && chartRef.current && priceHistory && details) {
-      const chart = new Chart(chartRef.current, {
+      new Chart(chartRef.current, {
         type: 'line',
         data: {
           datasets: [
@@ -40,8 +40,6 @@ const CoinChart: React.FC<CoinChartProps> = ({
         },
         options: chartOptions,
       });
-
-      chart.update();
     }
   }, [theme, priceHistory, currency, details]);
 

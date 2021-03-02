@@ -7,10 +7,10 @@ import { useActions } from '../../../hooks/useActions';
 import { useStyles } from './styles';
 
 interface CoinCardOptionsProps {
-  id: string;
+  coinId: string;
 }
 
-const CoinCardOptions: React.FC<CoinCardOptionsProps> = ({ id }) => {
+const CoinCardOptions: React.FC<CoinCardOptionsProps> = ({ coinId }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const { deletePortfolioCoin } = useActions();
@@ -28,7 +28,7 @@ const CoinCardOptions: React.FC<CoinCardOptionsProps> = ({ id }) => {
   const handleDeleteSelect = (
     event: React.MouseEvent<HTMLLIElement, MouseEvent>,
   ) => {
-    deletePortfolioCoin(id);
+    deletePortfolioCoin(coinId);
     handleClose(event);
   };
 

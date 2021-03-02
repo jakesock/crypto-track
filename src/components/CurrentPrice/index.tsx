@@ -19,7 +19,7 @@ const CurrentPrice: React.FC<CurrentPriceProps> = ({ coin }) => {
     <div className={classes.root}>
       <div className={classes.contentWrapper}>
         <Typography className={classes.label} variant="body1" component="p">
-          Current Price ({currency.nameUpper}):
+          Current Price ({currency.id.toUpperCase()}):
         </Typography>
         <Typography className={classes.data} variant="h6" component="p">
           {currency.symbol}

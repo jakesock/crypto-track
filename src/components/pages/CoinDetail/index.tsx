@@ -51,7 +51,7 @@ const CoinDetail: React.FC = () => {
     return history;
   });
   const currency = useTypedSelector(({ preferences }) => {
-    return preferences.currency.nameUpper;
+    return preferences.currency.id.toUpperCase();
   });
 
   const priceHistory = useChartData(coinHistory.price);

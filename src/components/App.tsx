@@ -18,19 +18,19 @@ import { useTypedSelector } from 'src/hooks/useTypedSelector';
 
 const App: React.FC = () => {
   const isDarkTheme = useTypedSelector((state) => state.preferences.isDarkTheme);
+  const currency = useTypedSelector(({ preferences }) => preferences.currency);
   const theme = isDarkTheme ? darkTheme : lightTheme;
   const classes = useStyles();
-  const { getPortfolio, getTrending, getPreferences, setTheme } = useActions();
+  const { getPortfolio, getTrending, getPreferences } = useActions();
 
-  const handleThemeChange = () => {
-    setTheme(!isDarkTheme);
-  };
+  useEffect(() => {
+    getPortfolio();
+  }, [getPortfolio, currency]);
 
   useEffect(() => {
     getPreferences();
-    getPortfolio();
     getTrending();
-  }, [getPortfolio, getPreferences, getTrending]);
+  }, [getPreferences, getTrending]);
 
   return (
     <div className={classes.root}>
@@ -40,10 +40,7 @@ const App: React.FC = () => {
           <div>
             <Grow in timeout={350}>
               <Container maxWidth="lg">
-                <Navbar
-                  isDarkTheme={isDarkTheme}
-                  handleThemeChange={handleThemeChange}
-                />
+                <Navbar isDarkTheme={isDarkTheme} />
               </Container>
             </Grow>
             <Grow in timeout={550}>

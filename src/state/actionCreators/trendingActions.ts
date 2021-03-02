@@ -12,9 +12,13 @@ export const getTrending = (): AppThunk => async (
 
     const { data } = await api.getTrendingCoins();
 
+    const coins = data.coins.map(({ item }) => {
+      return { ...item };
+    });
+
     dispatch({
       type: ActionType.GET_TRENDING,
-      payload: data.coins,
+      payload: coins,
     });
   } catch (err) {
     console.log(err);

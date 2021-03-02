@@ -125,10 +125,21 @@ export type APITrendingResults = {
   exchanges: TrendingExchangeResult[] | never[];
 };
 
-export interface TrendingCoinResult extends CoinResult {
+export interface TrendingCoinResult {
+  item: TrendingCoin;
+}
+
+export interface TrendingCoin extends CoinResult {
   score: number;
 }
 
 export interface TrendingExchangeResult extends ExchangeResult {
   score: number;
+}
+
+// Currency Types
+export interface Currency {
+  id: string;
+  symbol: string;
+  name: string;
 }

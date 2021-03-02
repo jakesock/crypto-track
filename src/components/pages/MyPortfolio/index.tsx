@@ -1,9 +1,9 @@
-import CoinList from '../../CoinList';
+import PortfolioList from '../../PortfolioList';
 
 const MyPortfolio: React.FC = () => {
   return (
     <div>
-      <CoinList />
+      <PortfolioList />
     </div>
   );
 };

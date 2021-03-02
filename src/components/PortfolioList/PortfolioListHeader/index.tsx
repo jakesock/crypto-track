@@ -2,7 +2,7 @@ import { Typography, Grid } from '@material-ui/core';
 
 import { useStyles } from './styles';
 
-const CoinListHeader: React.FC = () => {
+const PortfolioListHeader: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -29,4 +29,4 @@ const CoinListHeader: React.FC = () => {
   );
 };
 
-export default CoinListHeader;
+export default PortfolioListHeader;

@@ -5,7 +5,8 @@ import {
   CoinsListState,
   CoinHistoryList,
   CoinResult,
-  TrendingCoinResult,
+  TrendingCoin,
+  Currency,
 } from '../Coin';
 
 // Portfolio Actions
@@ -72,15 +73,10 @@ export interface SetTrendingLoadingAction {
 
 export interface GetTrendingAction {
   type: ActionType.GET_TRENDING;
-  payload: TrendingCoinResult[];
+  payload: TrendingCoin[];
 }
 
 // Preferences Actions
-export interface Currency {
-  symbol: string;
-  nameLower: string;
-  nameUpper: string;
-}
 export interface GetPreferencesAction {
   type: ActionType.GET_PREFERENCES;
   payload: {

@@ -1,4 +1,5 @@
-import { GetPreferencesAction, Currency } from '../actions';
+import { CURRENCIES } from '../../constants';
+import { GetPreferencesAction } from '../actions';
 import { ActionType } from '../actionTypes';
 
 enum ThemeOptions {
@@ -11,11 +12,7 @@ export const getPreferences = (): GetPreferencesAction => {
   const isDarkTheme = savedTheme === ThemeOptions.dark;
 
   const savedCurrency = localStorage.getItem('currency') ?? 'usd';
-  const currency: Currency = {
-    symbol: '$',
-    nameLower: savedCurrency,
-    nameUpper: savedCurrency.toUpperCase(),
-  };
+  const currency = CURRENCIES[savedCurrency];
 
   return {
     type: ActionType.GET_PREFERENCES,
@@ -23,6 +20,16 @@ export const getPreferences = (): GetPreferencesAction => {
       isDarkTheme,
       currency,
     },
+  };
+};
+
+export const setCurrency = (id: string) => {
+  localStorage.setItem('currency', id);
+  const currency = CURRENCIES[id];
+
+  return {
+    type: ActionType.SET_CURRENCY,
+    payload: currency,
   };
 };
 

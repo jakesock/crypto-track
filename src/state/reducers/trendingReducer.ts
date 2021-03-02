@@ -1,10 +1,10 @@
 import { ActionType } from '../actionTypes';
 import { Action } from '../actions';
-import { TrendingCoinResult } from '../Coin';
+import { TrendingCoin } from '../Coin';
 
 interface TrendingState {
   loading: boolean;
-  results: TrendingCoinResult[];
+  results: TrendingCoin[];
 }
 
 const initialState: TrendingState = {

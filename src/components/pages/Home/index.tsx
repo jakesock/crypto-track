@@ -14,7 +14,7 @@ const Home: React.FC = () => {
     return portfolio.favoriteHistory;
   });
   const currency = useTypedSelector(({ preferences }) => {
-    return preferences.currency.nameUpper;
+    return preferences.currency.id.toUpperCase();
   });
 
   const priceHistory = useChartData(favoriteHistory);
