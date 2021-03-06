@@ -1,4 +1,4 @@
-import { Paper, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import PortfolioListHeader from './PortfolioListHeader';
 import CoinCardList from '../CoinCardList';
 
@@ -27,7 +27,7 @@ const PortfolioList: React.FC = () => {
   return (
     <Grid container>
       <Grid item xs={12}>
-        <Paper className={classes.root}>
+        <div className={classes.root}>
           <Grid container>
             <Grid item xs={12}>
               <PortfolioListHeader />
@@ -38,7 +38,7 @@ const PortfolioList: React.FC = () => {
               {loading ? 'Loading...' : renderedCoins()}
             </Grid>
           </Grid>
-        </Paper>
+        </div>
       </Grid>
     </Grid>
   );

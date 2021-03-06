@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     position: 'relative',
     transition: 'transform 300ms, box-shadow 2000ms cubic-bezier(.165, .84, .44, 1)',
     WebkitFontSmoothing: 'antialiased',
-    '& $img': {
+    '& img': {
       width: theme.spacing(12),
       borderRadius: '50%',
     },

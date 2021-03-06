@@ -5,6 +5,9 @@ export const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'center',
   },
+  headerContent: {
+    margin: theme.spacing(4),
+  },
   ul: {
     padding: 0,
   },

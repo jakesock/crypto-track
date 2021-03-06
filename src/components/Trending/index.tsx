@@ -13,8 +13,12 @@ const Trending: React.FC = () => {
   return (
     <section>
       <header className={classes.header}>
-        <Typography variant="h4" component="header">
-          Popular Recently
+        <Typography
+          className={classes.headerContent}
+          variant="h4"
+          component="header"
+        >
+          Popular Searches Recently
         </Typography>
       </header>
       {loading ? (

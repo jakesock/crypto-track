@@ -44,6 +44,9 @@ const reducer = produce(
           term: action.payload.term,
         };
         return state;
+      case ActionType.CLEAR_SEARCH:
+        state = initialState;
+        return state;
       default:
         return state;
     }

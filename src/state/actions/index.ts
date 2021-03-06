@@ -66,6 +66,10 @@ export interface SetSearchFailedAction {
   payload: string;
 }
 
+export interface ClearSearchAction {
+  type: ActionType.CLEAR_SEARCH;
+}
+
 // Trending Actions
 export interface SetTrendingLoadingAction {
   type: ActionType.SET_TRENDING_LOADING;
@@ -104,6 +108,7 @@ export type Action =
   | SearchCoinsAction
   | SetSearchLoadingAction
   | SetSearchFailedAction
+  | ClearSearchAction
   | GetPreferencesAction
   | SetThemeAction
   | SetCurrencyAction

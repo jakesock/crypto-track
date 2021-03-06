@@ -17,19 +17,15 @@ export const useStyles = makeStyles((theme: Theme) => ({
     right: theme.spacing(1),
   },
   formControl: {
-    display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
-    '&:first-of-type': {
-      marginBottom: theme.spacing(3),
-    },
+  },
+  divider: {
+    margin: theme.spacing(1.5, 0),
   },
   controlSectionContainer: {
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    width: '50%',
+    width: '30%',
   },
 }));

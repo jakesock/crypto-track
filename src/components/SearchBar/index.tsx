@@ -2,6 +2,7 @@ import { Paper, Input, IconButton, InputAdornment } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ClearIcon from '@material-ui/icons/Clear';
 
+import { useActions } from '../../hooks/useActions';
 import { useCoinSearch } from '../../hooks/useCoinSearch';
 import { useStyles } from './styles';
 
@@ -9,12 +10,15 @@ const SearchBar: React.FC = () => {
   const [term, setTerm] = useCoinSearch('', 500);
   const classes = useStyles();
 
+  const { clearSearch } = useActions();
+
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTerm(event.target.value);
   };
 
   const handleClear = () => {
     setTerm('');
+    clearSearch();
   };
 
   return (

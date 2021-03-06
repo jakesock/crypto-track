@@ -12,5 +12,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
   },
   image: {
     width: theme.spacing(7.5),
+    borderRadius: '50%',
   },
 }));

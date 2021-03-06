@@ -14,6 +14,7 @@ import {
   MenuItem,
   FormControl,
   Typography,
+  Divider,
 } from '@material-ui/core';
 
 import { useActions } from '../../../hooks/useActions';
@@ -56,7 +57,7 @@ const NavSettings: React.FC<NavSettingsProps> = ({ isDarkTheme }) => {
   const renderedCurrencyOptions = () => {
     return CURRENCIES_LIST.map((currency) => {
       return (
-        <MenuItem value={currency.id}>
+        <MenuItem key={currency.id} value={currency.id}>
           {currency.id.toUpperCase()}&nbsp;-&nbsp;{currency.name}
         </MenuItem>
       );
@@ -108,7 +109,7 @@ const NavSettings: React.FC<NavSettingsProps> = ({ isDarkTheme }) => {
                 <Brightness7Icon />
               </div>
             </FormControl>
-
+            <Divider className={classes.divider} />
             <FormControl className={classes.formControl}>
               <div className={classes.controlSectionContainer}>
                 <label htmlFor="currency-select">

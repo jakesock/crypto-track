@@ -2,6 +2,7 @@ import {
   SearchCoinsAction,
   SetSearchLoadingAction,
   SetSearchFailedAction,
+  ClearSearchAction,
 } from '../actions';
 import { AppThunk } from '../AppThunk';
 import { Dispatch } from 'redux';
@@ -26,6 +27,12 @@ export const searchCoins = (term: string): AppThunk => async (
   } catch (err) {
     console.log(err);
   }
+};
+
+export const clearSearch = (): ClearSearchAction => {
+  return {
+    type: ActionType.CLEAR_SEARCH,
+  };
 };
 
 type SearchActions =
